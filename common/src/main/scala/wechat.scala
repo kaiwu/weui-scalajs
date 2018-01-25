@@ -179,9 +179,9 @@ object wx extends js.Object {
   def setStorage (o: js.Object): Unit = js.native
   def setStorageSync (key: String, data: js.Object): Unit = js.native
   def getStorage (o: js.Object): Unit = js.native
-  def getStorageSync (key: String): js.Object = js.native
+  def getStorageSync (key: String): js.UndefOr[js.Dynamic] = js.native
   def getStorageInfo (o: js.Object): Unit = js.native
-  def getStorageInfoSync (): js.Object = js.native
+  def getStorageInfoSync (): js.UndefOr[js.Dynamic] = js.native
   def removeStorage (o: js.Object): Unit = js.native
   def removeStorageSync (key: String): Unit = js.native
   def clearStorage(): Unit = js.native
@@ -193,7 +193,7 @@ object wx extends js.Object {
   def createMapContext(id: String): MapContext = js.native
 
   def getSystemInfo (o: js.Object): Unit = js.native
-  def getSystemInfoSync (): js.Object = js.native
+  def getSystemInfoSync (): js.UndefOr[js.Dynamic] = js.native
   def canIUse(feature: String): Boolean = js.native
   def getNetworkType (o: js.Object): Unit = js.native
   def onNextworkStatusChange (f: js.Function): Unit = js.native
