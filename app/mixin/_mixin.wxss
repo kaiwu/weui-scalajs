@@ -1,3 +1,0 @@
-.pad (@padding) {
-  padding: @padding;
-}
