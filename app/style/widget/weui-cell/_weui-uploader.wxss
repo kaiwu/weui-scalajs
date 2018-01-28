@@ -18,7 +18,7 @@
 * limitations under the License.
 */
 
-@import "../../base/fn.wxss";
+@import "../../base/_fn.wxss";
 
 .weui-uploader{}
 .weui-uploader__hd{

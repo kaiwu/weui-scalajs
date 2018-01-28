@@ -4,7 +4,12 @@ import  com.typesafe.sbt.web._
 import  Import.WebKeys._
 
 lazy val root = (project in file("."))
-                .aggregate(common, app, index, actionsheet)
+                .aggregate(common, app, index, actionsheet,
+                           article, badge, button, dialog, flex,
+                           footer,  gallery, grid, icons, images,
+                           input, list, loadmore, msg, navbar,
+                           panel, picker, preview, progress,
+                           searchbar, slider, tabbar, toast, uploader)
 
 lazy val common = (project in file("common"))
                   .enablePlugins(ScalaJSPlugin)
@@ -32,14 +37,7 @@ lazy val app   = (project in file("app"))
                    webTarget := target.value / ".." / ".." / "target"
                  )
 
-lazy val index = (project in file("example/index"))
-                 .enablePlugins(SbtWeb,ScalaJSPlugin)
-                 .dependsOn(common)
-                 .settings(
-                   commonSettings,
-                   webTarget := target.value / ".." / ".." / ".." / "target" / "example"
-                 )
-
+lazy val index = (project in file("example/index")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
 lazy val actionsheet = (project in file("example/actionsheet")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
 lazy val article = (project in file("example/article")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
 lazy val badge = (project in file("example/badge")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)

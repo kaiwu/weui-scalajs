@@ -18,11 +18,8 @@
 * limitations under the License.
 */
 
-@import "../../base/fn.wxss";
-
-.weui-flex {
-    display: flex;
-}
-.weui-flex__item{
-    flex: 1;
-}
+@import "../../base/_fn.wxss";
+@import "./weui-form/_weui-form_common.wxss";
+@import "./weui-form/_weui-form-preview.wxss";
+@import "./weui-form/_weui-select.wxss";
+@import "./weui-form/_weui-vcode.wxss";

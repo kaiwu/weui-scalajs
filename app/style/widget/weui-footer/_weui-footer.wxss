@@ -18,36 +18,42 @@
 * limitations under the License.
 */
 
-@import "../../../base/fn.wxss";
+@import "../../base/_fn.wxss";
 
-.weui-cell_select {
-    padding: 0;
+.weui-footer {
+    color: @weuiTextColorGray;
+    font-size: 14px;
+    text-align: center;
 }
-.weui-select {
+.weui-footer_fixed-bottom{
+    position: fixed;
+    bottom: .52em;
+    left: 0;
+    right: 0;
+}
+.weui-footer__links{
+    font-size: 0;
+}
+.weui-footer__link{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 .62em;
     position: relative;
-    padding-left: @weuiCellGapH;
-    padding-right: 30px;
-
-    height: @weuiCellHeightEm;
-    min-height: @weuiCellHeightEm;
-    line-height: @weuiCellHeightEm;
-
-    border-right: 1rpx solid @weuiCellBorderColor;
-
+    font-size: 14px;
+    color: @weuiLinkColorDefault;
     &:before{
-        content: " ";
-        .setArrow(right, 6px, #C8C8CD, 2px);
-
-        position: absolute;
-        top: 50%;
-        right: @weuiCellGapH;
-        margin-top: -4px;
+        .setLeftLine();
+        left: -.65em;
+        top: .36em;
+        bottom: .36em;
     }
-    &_in-select-after{
-        padding-left: 0;
+    &:first-child{
+        &:before{
+            display: none;
+        }
     }
 }
-.weui-cell__hd_in-select-after,
-.weui-cell__bd_in-select-before{
-    padding-left: @weuiCellGapH;
+.weui-footer__text{
+    padding: 0 .34em;
+    font-size: 12px;
 }

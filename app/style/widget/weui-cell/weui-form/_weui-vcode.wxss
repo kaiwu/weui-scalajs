@@ -18,36 +18,28 @@
 * limitations under the License.
 */
 
-@import "../../base/fn.wxss";
+@import "../../../base/_fn.wxss";
 
-.weui-agree{
-    display: block;
-    padding: .5em 15px;
-    font-size: 13px;
+.weui-cell_vcode {
+    padding-right: 0;
 }
-.weui-agree__text{
-    color: @weuiTextColorGray;
+.weui-vcode-img{
+    margin-left: 5px;
+    height: unit(@weuiCellHeight / @weuiCellFontSize, em);
+    vertical-align: middle;
 }
-.weui-agree__link{
-    display: inline;
-    color: @weuiLinkColorDefault;
-}
-.weui-agree__checkbox{
-    position: absolute;
-    left: -9999px;
-}
-.weui-agree__checkbox-icon{
-    position: relative;
-    top: 2px;
+.weui-vcode-btn {
     display: inline-block;
-    border: 1px solid #D1D1D1;
-    background-color: #FFFFFF;
-    border-radius: 3px;
-    width: 11px;
-    height: 11px;
-}
-.weui-agree__checkbox-icon-check{
-    position: absolute;
-    top: 1px;
-    left: 1px;
+    height: unit(@weuiCellHeight / @weuiCellFontSize, em);
+    margin-left: 5px;
+    padding: 0 0.6em 0 0.7em;
+    border-left: 1px solid @weuiLineColorLight;
+    line-height: unit(@weuiCellHeight / @weuiCellFontSize, em);
+    vertical-align: middle;
+    font-size: @weuiCellFontSize;
+    color: @weuiDialogLinkColor;
+    white-space: nowrap;
+    &:active {
+        color: desaturate(@weuiDialogLinkColor, 30%);
+    }
 }

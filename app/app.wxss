@@ -1,4 +1,4 @@
-@import 'style/weui.wxss';
+@import 'style/_weui.wxss';
 
 page{
     background-color: #F8F8F8;

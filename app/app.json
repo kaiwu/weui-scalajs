@@ -1,6 +1,6 @@
 {
   "pages": [
-    "example/index",
+    "example/index/index",
 
     "example/button/button",
     "example/list/list",
