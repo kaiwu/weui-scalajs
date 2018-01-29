@@ -260,8 +260,41 @@ object wx extends js.Object {
 
 }
 
+@js.native
+@JSGlobal
+class WxTarget extends js.Object {
+  val id: String = js.native
+  val tagName: String = js.native
+  val dataset: js.Dynamic = js.native 
+}
+
+@js.native
+@JSGlobal
+class WxTouch extends js.Object {
+  val identifier: Int = js.native
+  val pageX: js.UndefOr[Int] = js.native
+  val pageY: js.UndefOr[Int] = js.native
+  val clientX: js.UndefOr[Int] = js.native
+  val clientY: js.UndefOr[Int] = js.native
+  val x: js.UndefOr[Int] = js.native
+  val y: js.UndefOr[Int] = js.native
+}
+
+@js.native
+@JSGlobal
+class WxEvent extends js.Object {
+  val `type`: String = js.native
+  val timeStamp: Int = js.native
+  val target: WxTarget = js.native
+  val currentTarget: WxTarget = js.native
+  val detail: js.Dynamic = js.native
+  val touches: js.Array[WxTouch] = js.native
+  val changedTouches: js.Array[WxTouch] = js.native
+}
+
 object Wechat {
-  def setData(o: js.Object, f: js.Function) = {
+  val callback = () => {}
+  def setData(o: js.Object, f: js.Function = callback) = {
     val current = WXGlobal.getCurrentPages().last
     current.setData(o,f)
   }
