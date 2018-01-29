@@ -1,6 +1,12 @@
 {
   "pages": [
-    "example/index/index"
+    "example/index/index",
+    "example/button/button",
+    "example/list/list",
+    "example/input/input",
+    "example/slider/slider",
+    "example/uploader/uploader"
+
   ],
   "window": {
     "navigationBarTextStyle": "black",

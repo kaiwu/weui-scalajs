@@ -33,6 +33,7 @@ object Page extends js.Object {
 object WXGlobal extends js.Object {
   def getApp(): App = js.native
   def getCurrentPages(): js.Array[Page] = js.native
+  def setTimeout(callback: js.Function, timeout: Int): Unit = js.native
 }
 
 @js.native
