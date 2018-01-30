@@ -5,8 +5,12 @@
     "example/list/list",
     "example/input/input",
     "example/slider/slider",
-    "example/uploader/uploader"
+    "example/uploader/uploader",
 
+    "example/navbar/navbar",
+    "example/tabbar/tabbar",
+
+    "example/searchbar/searchbar"
   ],
   "window": {
     "navigationBarTextStyle": "black",

@@ -267,6 +267,9 @@ class WxTarget extends js.Object {
   val id: String = js.native
   val tagName: String = js.native
   val dataset: js.Dynamic = js.native 
+
+  val offsetLeft: js.UndefOr[Int] = js.native
+  val offsetRight: js.UndefOr[Int] = js.native
 }
 
 @js.native
