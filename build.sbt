@@ -17,7 +17,7 @@ lazy val common = (project in file("common"))
 lazy val commonSettings = Seq(
      sourceDirectory in Assets := baseDirectory.value,
      public in Assets := webTarget.value,
-     includeFilter in Assets := "*.wxml" | "*.json" | "*.png" | "*.jpg",
+     includeFilter in Assets := "*.wxml" | "*.json",
      includeFilter in (Assets, LessKeys.less) := "*.wxss",
      excludeFilter in (Assets, LessKeys.less) := "_*.wxss",
      managedSources in (Assets, LessKeys.less) := (sourceDirectory in Assets).value.descendantsExcept((includeFilter in (Assets, LessKeys.less)).value, excludeFilter.value).get,
@@ -37,6 +37,15 @@ lazy val app   = (project in file("app"))
                    webTarget := target.value / ".." / ".." / "target"
                  )
 
+lazy val images = (project in file("example/images"))
+                 .enablePlugins(SbtWeb)
+                 .settings(
+                   sourceDirectory in Assets := baseDirectory.value,
+                   public in Assets := webTarget.value,
+                   includeFilter in Assets := "*.png" | "*.jpg",
+                   webTarget := target.value / ".." / ".." / ".." / "target" / "example" / name.value
+                 )
+
 lazy val index = (project in file("example/index")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
 lazy val actionsheet = (project in file("example/actionsheet")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
 lazy val article = (project in file("example/article")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
@@ -48,7 +57,6 @@ lazy val footer = (project in file("example/footer")).enablePlugins(SbtWeb,Scala
 lazy val gallery = (project in file("example/gallery")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
 lazy val grid = (project in file("example/grid")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
 lazy val icons = (project in file("example/icons")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
-lazy val images = (project in file("example/images")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
 lazy val input = (project in file("example/input")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
 lazy val list = (project in file("example/list")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
 lazy val loadmore = (project in file("example/loadmore")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
