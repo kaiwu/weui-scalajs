@@ -4,23 +4,21 @@ import js.Dynamic.literal
 object Progress extends js.Object {
   val data = literal(progress = 0, disabled = false)
 
-  def next(): Unit = {
-    if (this.data.progress.asInstanceOf[Int] >= 100) {
+  def next(progress: Int): Unit = {
+    if (progress >= 100) {
+      println("progress is " + this.data.progress)
       Wechat.setData(literal(disabled=false))
     }
     else {
-      val progress = this.data.progress.asInstanceOf[Int] + 1
       Wechat.setData(literal(progress=progress))
-      val cb = () => { next() }
+      val cb = () => { next(progress+1) }
       WXGlobal.setTimeout(cb,20)
     }
   }
 
   def upload(): Unit = {
-    if (!this.data.disabled.asInstanceOf[Boolean]) {
-      Wechat.setData(literal(progress=0,disabled=true))
-      next()
-    }
+    Wechat.setData(literal(progress=0,disabled=true))
+    next(0)
   }
 }
 
