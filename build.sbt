@@ -7,9 +7,9 @@ lazy val root = (project in file("."))
                 .aggregate(common, app, index, actionsheet,
                            article, badge, button, dialog, flex,
                            footer,  gallery, grid, icons, images,
-                           input, list, loadmore, msg, navbar,
-                           panel, picker, preview, progress,
-                           searchbar, slider, tabbar, toast, uploader)
+                           input, list, loadmore, msg, msg_success,
+                           msg_fail, navbar, panel, picker, preview,
+                           progress, searchbar, slider, tabbar, toast, uploader)
 
 lazy val common = (project in file("common"))
                   .enablePlugins(ScalaJSPlugin)
@@ -53,6 +53,8 @@ lazy val input = (project in file("example/input")).enablePlugins(SbtWeb,ScalaJS
 lazy val list = (project in file("example/list")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
 lazy val loadmore = (project in file("example/loadmore")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
 lazy val msg = (project in file("example/msg")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
+lazy val msg_success = (project in file("example/msg_success")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
+lazy val msg_fail = (project in file("example/msg_fail")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
 lazy val navbar = (project in file("example/navbar")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
 lazy val panel = (project in file("example/panel")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
 lazy val picker = (project in file("example/picker")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)

@@ -15,15 +15,6 @@ object app extends js.Object {
   }
 }
 
-//"pages": [
-//  "example/index/index",
-//
-//  "example/button/button",
-//  "example/list/list",
-//  "example/input/input",
-//  "example/slider/slider",
-//  "example/uploader/uploader",
-//
 //  "example/article/article",
 //  "example/badge/badge",
 //  "example/flex/flex",
@@ -36,20 +27,6 @@ object app extends js.Object {
 //  "example/preview/preview",
 //  "example/progress/progress",
 //
-//  "example/actionsheet/actionsheet",
-//  "example/dialog/dialog",
-//  "example/msg/msg",
-//  "example/msg/msg_success",
-//  "example/msg/msg_fail",
-//  "example/picker/picker",
-//  "example/toast/toast",
-//
-//  "example/navbar/navbar",
-//  "example/tabbar/tabbar",
-//
-//  "example/searchbar/searchbar"
-//],
-
 object Main {
   def main(args: Array[String]): Unit = {
     App(app)

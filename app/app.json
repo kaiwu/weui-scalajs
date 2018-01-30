@@ -7,6 +7,14 @@
     "example/slider/slider",
     "example/uploader/uploader",
 
+    "example/actionsheet/actionsheet",
+    "example/dialog/dialog",
+    "example/msg/msg",
+    "example/msg_success/msg_success",
+    "example/msg_fail/msg_fail",
+    "example/picker/picker",
+    "example/toast/toast",
+
     "example/navbar/navbar",
     "example/tabbar/tabbar",
 
@@ -14,7 +22,7 @@
   ],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "WeUI for 小程序",
+    "navigationBarTitleText": "WeUI for ScalaJS",
     "navigationBarBackgroundColor": "#f8f8f8",
     "backgroundColor": "#f8f8f8"
   },
