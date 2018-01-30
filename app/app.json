@@ -7,6 +7,18 @@
     "example/slider/slider",
     "example/uploader/uploader",
 
+    "example/article/article",
+    "example/badge/badge",
+    "example/flex/flex",
+    "example/footer/footer",
+    "example/gallery/gallery",
+    "example/grid/grid",
+    "example/icons/icons",
+    "example/loadmore/loadmore",
+    "example/panel/panel",
+    "example/preview/preview",
+    "example/progress/progress",
+
     "example/actionsheet/actionsheet",
     "example/dialog/dialog",
     "example/msg/msg",
