@@ -54,6 +54,11 @@ SBT is [hard](http://www.lihaoyi.com/post/SowhatswrongwithSBT.html) and slow. I 
 
 To use `Less` and the sbt plugin, all the secondary component files are prefixed with underscore, such as `_weui.wxss`
 
+## Roadmap
+
+1. Wechat API as scala [Futures](https://www.scala-js.org/doc/sjs-for-js/es6-to-scala-part3.html)
+2. Template with [scalatags](https://github.com/lihaoyi/scalatags), so that wxml and [Vue](https://vuejs.org/v2/guide/syntax.html) templates could interchange
+
 ## License
 
 [The MIT License](http://opensource.org/licenses/MIT)
