@@ -5,7 +5,7 @@ object Progress extends js.Object {
   val data = literal(progress = 0, disabled = false)
 
   def next(progress: Int): Unit = {
-    if (progress >= 100) {
+    if (progress > 100) {
       println("progress is " + this.data.progress)
       Wechat.setData(literal(disabled=false))
     }

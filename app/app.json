@@ -30,7 +30,9 @@
     "example/navbar/navbar",
     "example/tabbar/tabbar",
 
-    "example/searchbar/searchbar"
+    "example/searchbar/searchbar",
+
+    "example/request/request"
   ],
   "window": {
     "navigationBarTextStyle": "black",
