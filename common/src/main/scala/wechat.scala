@@ -3,23 +3,36 @@ import js.Dynamic.literal
 import scala.concurrent.{Future,Promise}
 
 object Wechat {
-  val callback = () => {}
-  def setData(o: js.Object, f: js.Function = callback) = {
+  type Callback = () => Unit 
+  implicit val callback: Callback = () => {}
+
+  def andThen(f: =>Unit): Unit = f
+
+  def setData(o: js.Object,f: Callback = callback) = {
     val current = WXGlobal.getCurrentPages().last
     current.setData(o,f)
+    this
   }
 
-  def login(): Future[Int] = {
-    val p = Promise[Int]()
-    val cb = () => p.success(0)
-    wx.login(literal(success = cb))
+  def login(implicit c: Callback): Future[js.Dynamic] = {
+    val p = Promise[js.Dynamic]()
+    val scb = (ret: js.Dynamic) => p.success(ret)
+    val fcb = () => p.failure(js.JavaScriptException("failed wx.login"))
+    wx.login(literal(success = scb, fail = fcb, complete = c))
     p.future
   }
 
-  def getUserInfo(withCredentials: Boolean = false,lang: String ="en"): Future[js.Dynamic] = {
+  case class GetUserInfoOption(withCredentials: Boolean,lang: String)
+  implicit val getUserInfoOption = GetUserInfoOption(false,"en")
+  def getUserInfo(implicit o: GetUserInfoOption, c: Callback): Future[js.Dynamic] = {
     val p = Promise[js.Dynamic]()
-    val cb = (res: js.Dynamic) => p.success(res.userInfo)
-    wx.getUserInfo(literal(success = cb))
+    val scb = (ret: js.Dynamic) => p.success(ret.userInfo)
+    val fcb = () => p.failure(js.JavaScriptException("failed wx.getUserInfo"))
+    wx.getUserInfo(literal(withCredentials = o.withCredentials,
+                           lang = o.lang,
+                           success = scb,
+                           fail = fcb,
+                           complete = c))
     p.future
   }
 }
