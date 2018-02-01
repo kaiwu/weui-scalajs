@@ -12,6 +12,19 @@ A few motivations behind the project :
 2. Avoid `this` and `that` of JavaScript and all of its hells and pitfalls, scala is far more superior even by ES6 standard
 3. [WePY](https://tencent.github.io/wepy/), the Tencent backed framework, is eh... ugly. It confuses people simply by its name
 
+Following is a typical array of asynchronous calls, written in scala way
+
+```scala
+def onLoad(): Unit = {
+  val info = for {
+    msg  <- Wechat.login{}
+    info <- Wechat.getUserInfo(false,"en"){}
+  } yield info
+
+  Wechat.setData("userInfo", info)
+}
+
+```
 ## How to use
 
 ```
@@ -56,8 +69,7 @@ To use `Less` and the sbt plugin, all the secondary component files are prefixed
 
 ## Roadmap
 
-1. Wechat API as scala [Futures](https://www.scala-js.org/doc/sjs-for-js/es6-to-scala-part3.html)
-2. Template with [scalatags](https://github.com/lihaoyi/scalatags), so that wxml and [Vue](https://vuejs.org/v2/guide/syntax.html) templates could interchange
+1. Template with [scalatags](https://github.com/lihaoyi/scalatags), so that wxml and [Vue](https://vuejs.org/v2/guide/syntax.html) templates could interchange
 
 ## License
 
