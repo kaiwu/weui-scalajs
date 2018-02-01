@@ -1,22 +1,20 @@
-import scala.util.{Success,Failure}
 import scala.scalajs.js
 import js.Dynamic.literal
 import scala.concurrent.ExecutionContext.Implicits.global
-import Wechat.callback
-import Wechat.getUserInfoOption
+
+//implicit
+import Wechat.errorCallback
 
 object Request extends js.Object {
   val data = literal(motto="hello world", userInfo=literal())
 
   def onLoad(): Unit = {
     val info = for {
-      msg <- Wechat.login
-      info <- Wechat.getUserInfo
+      msg  <- Wechat.login{}
+      info <- Wechat.getUserInfo(false,"en"){}
     } yield info
-    info.onComplete {
-      case Success(i) => Wechat.setData(literal(userInfo = i)).andThen { println("avatar changed") }
-      case Failure(e) => println(e)
-    }
+
+    Wechat.setData(info)
   }
 }
 
