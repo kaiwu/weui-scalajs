@@ -14,7 +14,7 @@ object Request extends js.Object {
       info <- Wechat.getUserInfo(false,"en"){}
     } yield info
 
-    Wechat.setData(info)
+    Wechat.setData("userInfo", info)
   }
 }
 

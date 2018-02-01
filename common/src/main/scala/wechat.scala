@@ -15,9 +15,9 @@ object Wechat {
     current.setData(o,f)
   }
 
-  def setData(data: Future[js.Dynamic])(implicit cb: ErrorCallback): Unit = {
+  def setData(key: String, data: Future[js.Dynamic])(implicit cb: ErrorCallback): Unit = {
     data.onComplete {
-      case Success(i) => this.setData(literal(userInfo = i))
+      case Success(i) => this.setData(literal(key -> i))
       case Failure(e) => cb(e)
     }
   }
