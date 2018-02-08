@@ -4,17 +4,17 @@
 
 By implementing [WeUI demo](https://github.com/Tencent/weui-wxss/), this project is a POC that [WeChat App](https://github.com/Wechat-Group/awesome-wechat-weapp)
 can be implemented with [Scala.js](https://www.scala-js.org/) and [SBT](https://www.scala-sbt.org/), specifically,
-it uses the Scala.js plugin to compile scala sources and [sbt-less](https://github.com/sbt/sbt-less#sbt-less) to compile style sources.
+it uses the Scala.js plugin to compile Scala sources and [sbt-less](https://github.com/sbt/sbt-less#sbt-less) to compile style sources.
 
 A few motivations behind the project :
 
-1. Enjoy the scala ecosystem !
-2. Avoid `this` and `that` of JavaScript and all of its hells and pitfalls, scala is far more superior even by ES6 standard
-3. [WePY](https://tencent.github.io/wepy/), the Tencent backed framework, is eh... ugly. It confuses people simply by its name
+1. Enjoy the Scala ecosystem !
+2. Avoid `this` and `that` of JavaScript and all of its hells and pitfalls, Scala causes much less hassles.
+3. [WePY](https://tencent.github.io/wepy/), the Tencent backed framework, only created extra boilerplates.
 
-Following is a typical array of asynchronous calls, written in scala way
+Following is a typical array of asynchronous calls, written in Scala way
 
-```scala
+```Scala
 def onLoad(): Unit = {
   val info = for {
     msg  <- Wechat.login{}
@@ -67,11 +67,15 @@ SBT is [hard](http://www.lihaoyi.com/post/SowhatswrongwithSBT.html) and slow. I 
 
 To use `Less` and the sbt plugin, all the secondary component files are prefixed with underscore, such as `_weui.wxss`
 
-## Roadmap
+### External library
 
-1. Template with [scalatags](https://github.com/lihaoyi/scalatags), so that wxml and [Vue](https://vuejs.org/v2/guide/syntax.html) templates could interchange
+This demo illustrates an easy approach to add an external Javascript library, the [PouchDB](https://pouchdb.com/).
+However, Scala.js compiler keeps bundling those Javascript sources in the webjar, which will be picked up and loaded by WeApp. Since WeApp requires the size be less than 2M, we can simply remove the unneeded `classes` folders.
+
+```
+project $ find target/ -name classes -print | xargs rm -rf
+```
 
 ## License
 
 [The MIT License](http://opensource.org/licenses/MIT)
-

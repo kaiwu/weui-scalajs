@@ -9,6 +9,8 @@ object Request extends js.Object {
   val data = literal(motto="hello world", userInfo=literal())
 
   def bindViewTap(): Unit = {
+    val cb = (err: js.Dynamic, doc: js.Dynamic) => {Wechat.setData(literal(motto=doc.motto))}
+    WXGlobal.getApp().getDb().get("mydoc",literal(),cb)
   }
 
   def onLoad(): Unit = {
