@@ -41,4 +41,18 @@ object Wechat {
                            complete = () => cb))
     p.future
   }
+
+  def request(url: String,data: js.Dynamic,header: js.Dynamic,method: String)(cb: => Unit): Future[js.Dynamic] = {
+    val p = Promise[js.Dynamic]()
+    val scb = (ret: js.Dynamic) => p.success(ret)
+    val fcb = () => p.failure(js.JavaScriptException("wx.request"))
+    wx.request(literal(url = url,
+                       data = data,
+                       header = header,
+                       method = method,
+                       success = scb,
+                       fail = fcb,
+                       complete = () => cb))
+    p.future
+  }
 }

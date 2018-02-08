@@ -18,7 +18,7 @@ lazy val common = (project in file("common"))
 lazy val commonSettings = Seq(
      sourceDirectory in Assets := baseDirectory.value,
      public in Assets := webTarget.value,
-     includeFilter in Assets := "*.wxml" | "*.json",
+     includeFilter in Assets := new SimpleFileFilter(_.getParent == baseDirectory.value + "/lib") || "*.wxml" || "*.json" ,
      includeFilter in (Assets, LessKeys.less) := "*.wxss",
      excludeFilter in (Assets, LessKeys.less) := "_*.wxss",
      managedSources in (Assets, LessKeys.less) := (sourceDirectory in Assets).value.descendantsExcept((includeFilter in (Assets, LessKeys.less)).value, excludeFilter.value).get,

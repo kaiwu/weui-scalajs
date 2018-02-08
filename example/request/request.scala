@@ -8,6 +8,9 @@ import Wechat.errorCallback
 object Request extends js.Object {
   val data = literal(motto="hello world", userInfo=literal())
 
+  def bindViewTap(): Unit = {
+  }
+
   def onLoad(): Unit = {
     val info = for {
       msg  <- Wechat.login{}
