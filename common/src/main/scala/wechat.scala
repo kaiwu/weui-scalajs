@@ -10,6 +10,16 @@ object Wechat {
   implicit val callback: Callback = () => {}
   implicit val errorCallback: ErrorCallback = (e: Throwable) => { println(e) }
 
+  def selectComponent(s: String): Component = {
+    val current = WXGlobal.getCurrentPages().last
+    current.selectComponent(s)
+  }
+
+  def selectAllComponents(s: String): js.Array[Component] = {
+    val current = WXGlobal.getCurrentPages().last
+    current.selectAllComponents(s)
+  }
+
   def setData(o: js.Object,f: Callback = callback): Unit = {
     val current = WXGlobal.getCurrentPages().last
     current.setData(o,f)

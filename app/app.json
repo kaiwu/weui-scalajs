@@ -32,7 +32,7 @@
 
     "example/searchbar/searchbar",
 
-    "example/request/request"
+    "example/component/component"
   ],
   "window": {
     "navigationBarTextStyle": "black",

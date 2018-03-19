@@ -15,7 +15,7 @@ object Index extends js.Object {
     new Item("feedback","操作反馈",false, js.Array[String]("actionsheet", "dialog", "msg", "picker", "toast")),
     new Item("nav","导航相关",false, js.Array[String]("navbar", "tabbar")),
     new Item("search","搜索相关",false, js.Array[String]("searchbar")),
-    new Item("special","其他",false, js.Array[String]("request"))
+    new Item("special","其他",false, js.Array[String]("component"))
   ))
 
   def kindToggle (e: WxEvent): Unit = {

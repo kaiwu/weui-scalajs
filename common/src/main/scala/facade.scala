@@ -20,12 +20,33 @@ object App extends js.Object {
 @JSGlobal
 class Page extends js.Object {
   def setData(o: js.Object, f: js.Function): Unit = js.native
+  def selectComponent(s: String): Component = js.native
+  def selectAllComponents(s: String): js.Array[Component] = js.native
 }
 
 @js.native
 @JSGlobal
 object Page extends js.Object {
   def apply(o: js.Object): Page = js.native
+}
+
+@js.native
+@JSGlobal
+class Component extends js.Object {
+  val is: String = js.native
+  val id: String = js.native
+  val dataset: String = js.native
+  val data: js.Object = js.native
+
+  def setData(o: js.Dynamic): Unit = js.native
+  def hasBehavior(d: js.Dynamic): Boolean = js.native
+  def triggerEvent(e: String,detail: js.Dynamic, options: js.Dynamic): Unit = js.native
+}
+
+@js.native
+@JSGlobal
+object Component extends js.Object {
+  def apply(o: js.Object): Component = js.native
 }
 
 @js.native
@@ -40,6 +61,13 @@ object WXGlobal extends js.Object {
 @JSGlobal
 class RequestTask extends js.Object {
   def abort (): Unit = js.native
+}
+
+@js.native
+@JSGlobal
+class LoadTask extends js.Object {
+  def abort (): Unit = js.native
+  def onProgressUpdate (callback: js.Function): Unit = js.native
 }
 
 @js.native

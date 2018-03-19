@@ -49,10 +49,12 @@ sbt > images/assets
 
 ## Caveats
 
-### setData
+### Component
 
-`Wechat.setData` does NOT write `this.data`, it simply writes data to the view layer asynchronously.
-First of all it is trivial enough to update `this.data` anytime, secondly, the side effect might not always be the needed.
+Scala.js supports component based development, as illustrated by page `example/component/component`, if a component is written in Javascript
+it can be used directly in pages. If a component is written in Scala.js and it defines custom event, be careful to resolve the needed handlers
+from `onReady` of Pages instead of `methods` of Components, because Scala.js cannot (for the good) declare a magic `this`, which is a major
+sources of mystery of Javascript
 
 ### Facade
 
@@ -61,16 +63,15 @@ this work is straightforward and could be supplemented as WeApp itself is evolvi
 
 ### SBT
 
-SBT is [hard](http://www.lihaoyi.com/post/SowhatswrongwithSBT.html) and slow. I have to say it again, SBT IS SLOW.
+SBT is [hard](http://www.lihaoyi.com/post/SowhatswrongwithSBT.html)
 
 ### Less
 
 To use `Less` and the sbt plugin, all the secondary component files are prefixed with underscore, such as `_weui.wxss`
 
-### External library
+### Others
 
-This demo illustrates an easy approach to add an external Javascript library, the [PouchDB](https://pouchdb.com/).
-However, Scala.js compiler keeps bundling those Javascript sources in the webjar, which will be picked up and loaded by WeApp. Since WeApp requires the size be less than 2M, we can simply remove the unneeded `classes` folders.
+Scala.js compiler keeps bundling those Javascript sources in the webjar, which will be picked up and loaded by WeApp. Since WeApp requires the size be less than 2M, we can simply remove the unneeded `classes` folders.
 
 ```
 project $ find target/ -name classes -print | xargs rm -rf
@@ -78,4 +79,4 @@ project $ find target/ -name classes -print | xargs rm -rf
 
 ## License
 
-[The MIT License](http://opensource.org/licenses/MIT)
+[MIT](http://opensource.org/licenses/MIT)

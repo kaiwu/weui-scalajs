@@ -10,7 +10,7 @@ lazy val root = (project in file("."))
                            input, list, loadmore, msg, msg_success,
                            msg_fail, navbar, panel, picker, preview,
                            progress, searchbar, slider, tabbar, toast,
-                           uploader, request)
+                           uploader, component, popup)
 
 lazy val common = (project in file("common"))
                   .enablePlugins(ScalaJSPlugin)
@@ -74,4 +74,9 @@ lazy val slider = (project in file("example/slider")).enablePlugins(SbtWeb,Scala
 lazy val tabbar = (project in file("example/tabbar")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
 lazy val toast = (project in file("example/toast")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
 lazy val uploader = (project in file("example/uploader")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
-lazy val request = (project in file("example/request")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
+lazy val component = (project in file("example/component")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(commonSettings)
+
+lazy val popup = (project in file("components/popup")).enablePlugins(SbtWeb,ScalaJSPlugin).dependsOn(common).settings(
+    commonSettings,
+    webTarget := target.value / ".." / ".." / ".." / "target" / "components" / name.value
+)
