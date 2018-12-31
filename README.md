@@ -71,10 +71,10 @@ To use `Less` and the sbt plugin, all the secondary component files are prefixed
 
 ### Others
 
-Scala.js compiler keeps bundling those Javascript sources in the webjar, which will be picked up and loaded by WeApp. Since WeApp requires the size be less than 2M, we can simply remove the unneeded `classes` folders.
+Scala.js compiler keeps bundling those Javascript sources in the webjar, which will be picked up and loaded by WeApp. Since WeApp requires the size be less than 2M, we can simply remove the unneeded `classes` folders. You can use the `cleanup.sh` script directly.
 
 ```
-project $ find target/ -name classes -print | xargs rm -rf
+project $ ./cleanup.sh
 ```
 
 ## License
